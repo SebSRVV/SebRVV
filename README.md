@@ -1,12 +1,12 @@
 # 🚀 SebRVV Portafolio
 
-Portafolio profesional, creativo y animado desarrollado con **Next.js**, **GSAP**, **Framer Motion**, y diseño inspirado en interfaces modernas como la Dynamic Island de Apple y sitios creativos como `bepatrickdavid.com`.
+Portafolio profesional, creativo y animado desarrollado con **Next.js**, **GSAP**, **Framer Motion**, y diseño inspirado en interfaces modernas como la Dynamic Island de Apple y sitios creativos.
 
 ---
 
 ## 🌐 Demo
 
-🔗 [sebrrv.vercel.app](https://sebrrv.vercel.app) ← *(Reemplázalo con tu URL real si está desplegado)*
+🔗 [www.sebrvv.online](https://sebrrv.online) 
 
 ---
 
