@@ -1,64 +1,66 @@
 import { useEffect, useRef, useState } from 'react'
+import { useTranslations } from 'next-intl'
 import { gsap } from 'gsap'
 
-const roles = ['Engineer', 'Developer', 'Creative Technologist', 'Cloud Architect']
+const roles = ['Data Engineer', 'Developer', 'Programmer','Sebastian Rojas']
 
 export default function Hero() {
+  const t = useTranslations('hero')
   const heroRef = useRef<HTMLDivElement>(null)
-  const [roleIndex, setRoleIndex] = useState(0)
   const roleRef = useRef<HTMLSpanElement>(null)
+  const [roleIndex, setRoleIndex] = useState(0)
 
-  // Cambiar de rol animado
+  // Animación de cambio de rol
   useEffect(() => {
     const interval = setInterval(() => {
       if (!roleRef.current) return
       gsap.to(roleRef.current, {
         opacity: 0,
         y: -10,
-        duration: 0.4,
-        ease: 'power1.out',
+        duration: 0.3,
+        ease: 'power2.out',
         onComplete: () => {
           setRoleIndex((prev) => (prev + 1) % roles.length)
           gsap.fromTo(
             roleRef.current,
             { opacity: 0, y: 10 },
-            { opacity: 1, y: 0, duration: 0.4, ease: 'power1.out' }
+            { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }
           )
         },
       })
-    }, 2500)
+    }, 3000)
     return () => clearInterval(interval)
   }, [])
 
-  // Animación inicial
+  // Animaciones iniciales
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.hero-text h1', {
+      gsap.from('.hero-heading', {
         opacity: 0,
-        y: 50,
-        duration: 1.2,
+        x: -50,
+        duration: 1,
         ease: 'power3.out',
       })
-      gsap.from('.hero-text p', {
+      gsap.from('.hero-description', {
         opacity: 0,
-        y: 30,
-        delay: 0.4,
+        x: -30,
+        delay: 0.3,
         duration: 1,
         ease: 'power2.out',
       })
-      gsap.from('.hero-cta', {
+      gsap.from('.hero-button', {
         opacity: 0,
         y: 20,
-        delay: 0.8,
+        delay: 0.6,
         duration: 0.8,
         ease: 'power2.out',
       })
-      gsap.from('.hero-right', {
+      gsap.from('.hero-visual', {
         opacity: 0,
-        scale: 0.95,
-        delay: 0.6,
-        duration: 1,
-        ease: 'power2.out',
+        scale: 0.9,
+        delay: 0.4,
+        duration: 1.2,
+        ease: 'power3.out',
       })
     }, heroRef)
 
@@ -69,84 +71,112 @@ export default function Hero() {
     <section
       ref={heroRef}
       style={{
-        backgroundColor: '#0F0F0F',
-        color: '#F5F5F5',
-        padding: '8rem 4rem 6rem',
+        background: 'linear-gradient(135deg, #0F0F1F, #101820)',
+        color: '#F0F4F8',
+        minHeight: '100vh',
+        padding: '4rem 5vw',
         display: 'flex',
-        alignItems: 'flex-start',
-        justifyContent: 'space-between',
-        gap: '4rem',
+        justifyContent: 'center',
+        alignItems: 'center',
         fontFamily: "'Space Grotesk', sans-serif",
-        flexWrap: 'wrap',
+        overflow: 'hidden',
       }}
     >
-      <div className="hero-text" style={{ flex: 1, minWidth: '300px', maxWidth: '600px' }}>
-        <h1
-          style={{
-            fontSize: '3.75rem',
-            fontWeight: 700,
-            marginBottom: '1.25rem',
-            lineHeight: 1.2,
-            whiteSpace: 'nowrap',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-          }}
-        >
-          I am <span ref={roleRef}>{roles[roleIndex]}</span>
-        </h1>
-        <p
-          style={{
-            fontSize: '1.25rem',
-            fontWeight: 300,
-            lineHeight: 1.7,
-            marginBottom: '2rem',
-            color: '#D0D0D0',
-          }}
-        >
-          Desarrollo soluciones modernas y escalables usando tecnologías como TypeScript, React,
-          Node.js, Python, C++, Azure y bases de datos como MySQL. Me apasiona crear experiencias
-          digitales elegantes, accesibles y con excelente rendimiento.
-        </p>
-        <a
-          href="#projects"
-          className="hero-cta"
-          style={{
-            display: 'inline-block',
-            padding: '0.9rem 1.8rem',
-            backgroundColor: '#00D1FF',
-            color: '#0F0F0F',
-            borderRadius: '999px',
-            fontWeight: 500,
-            textDecoration: 'none',
-            transition: 'background-color 0.3s ease',
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#00B0CC')}
-          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#00D1FF')}
-        >
-          Ver proyectos
-        </a>
-      </div>
-
       <div
-        className="hero-right"
         style={{
-          flex: 1,
           display: 'flex',
-          justifyContent: 'center',
+          justifyContent: 'space-between',
           alignItems: 'center',
-          minWidth: '280px',
+          flexWrap: 'wrap',
+          width: '100%',
+          maxWidth: '1400px',
+          gap: '4rem',
         }}
       >
+        {/* Texto */}
+        <div className="hero-text" style={{ flex: 1, minWidth: '300px' }}>
+          <h1
+            className="hero-heading"
+            style={{
+              fontSize: '3.75rem',
+              fontWeight: 700,
+              marginBottom: '1.2rem',
+              lineHeight: 1.2,
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+            }}
+          >
+            {t('intro')} <span ref={roleRef}>{roles[roleIndex]}</span>
+          </h1>
+
+          <p
+            className="hero-description"
+            style={{
+              fontSize: '1.3rem',
+              fontWeight: 300,
+              lineHeight: 1.8,
+              marginBottom: '2rem',
+              color: '#D3D6DA',
+              maxWidth: '650px',
+            }}
+          >
+            {t('description')}
+          </p>
+
+          <a
+            href="#projects"
+            className="hero-button"
+            style={{
+              display: 'inline-block',
+              padding: '1rem 2rem',
+              backgroundColor: '#00D1FF',
+              color: '#0F0F0F',
+              borderRadius: '999px',
+              fontWeight: 600,
+              fontSize: '1rem',
+              letterSpacing: '0.5px',
+              textDecoration: 'none',
+              transition: 'all 0.3s ease',
+              boxShadow: '0 6px 20px rgba(0, 209, 255, 0.3)',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#00B8E0'
+              e.currentTarget.style.boxShadow = '0 8px 30px rgba(0, 209, 255, 0.4)'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = '#00D1FF'
+              e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 209, 255, 0.3)'
+            }}
+          >
+            {t('button')}
+          </a>
+        </div>
+
+        {/* Visual */}
         <div
+          className="hero-visual"
           style={{
-            width: '100%',
-            maxWidth: '420px',
-            height: '420px',
-            borderRadius: '20px',
-            background: 'radial-gradient(circle at center, #00D1FF22, #00000000)',
-            boxShadow: '0 0 120px #00d1ff15',
+            flex: 1,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            minWidth: '280px',
           }}
-        />
+        >
+          <div
+            style={{
+              width: '100%',
+              maxWidth: '440px',
+              height: '440px',
+              borderRadius: '20px',
+              background:
+                'radial-gradient(circle at center, rgba(0,209,255,0.15), rgba(0,0,0,0))',
+              boxShadow: '0 0 140px rgba(0,209,255,0.1), inset 0 0 40px rgba(0,209,255,0.2)',
+              backdropFilter: 'blur(3px)',
+            }}
+          />
+        </div>
       </div>
     </section>
   )

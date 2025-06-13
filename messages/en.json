@@ -1,0 +1,16 @@
+{
+  "navbar": {
+    "home": "Home",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Have an idea or project? I’m open to collaborating and building creative solutions."
+  },
+  "hero": {
+    "intro": "I am",
+    "description": "I craft elegant, scalable, and performant digital solutions using TypeScript, React, Node.js, Python, C++, Azure, and SQL-based systems. My passion lies in building accessible, responsive, and future-proof user experiences.",
+    "button": "View Projects"
+  }
+}

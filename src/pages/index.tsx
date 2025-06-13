@@ -1,4 +1,7 @@
 import { useState } from 'react'
+import { GetStaticPropsContext } from 'next'
+import { useTranslations } from 'next-intl'
+
 import Intro from '@/components/Intro'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
@@ -7,6 +10,7 @@ import FeaturedProjects from '@/components/FeaturedProject'
 
 export default function Home() {
   const [introDone, setIntroDone] = useState(false)
+  const t = useTranslations('contact') // para traducir la sección de contacto
 
   return (
     <>
@@ -17,25 +21,20 @@ export default function Home() {
           <Navbar />
 
           <main className="bg-[#0F0F0F] text-white font-['Space Grotesk']">
-            {/* Hero principal */}
             <Hero />
-
-            {/* Tooling / Tecnologías */}
             <Tooling />
 
-            {/* Mapa de Proyectos */}
-<section id="projects">
-  <FeaturedProjects />
-</section>
+            <section id="projects">
+              <FeaturedProjects />
+            </section>
 
-            {/* Contacto */}
             <section
               id="contact"
               className="bg-[#0F0F0F] py-24 px-6 text-center text-white"
             >
-              <h2 className="text-3xl font-semibold mb-4">🤝 Contacto</h2>
+              <h2 className="text-3xl font-semibold mb-4">🤝 {t('title')}</h2>
               <p className="text-lg font-light max-w-xl mx-auto text-[#CCCCCC]">
-                ¿Tienes una idea o proyecto? Estoy abierto a colaborar y construir soluciones creativas.
+                {t('description')}
               </p>
               <p className="mt-4 text-lg">
                 📬{' '}
@@ -52,4 +51,13 @@ export default function Home() {
       )}
     </>
   )
+}
+
+// 👇 Carga las traducciones según el idioma actual
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+  return {
+    props: {
+      messages: (await import(`../../messages/${locale}.json`)).default
+    }
+  }
 }

@@ -1,0 +1,17 @@
+{
+  "navbar": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "contact": {
+    "title": "Contacto",
+    "description": "¿Tienes una idea o proyecto? Estoy abierto a colaborar y construir soluciones creativas."
+  },
+  "hero": {
+    "intro": "Soy",
+    "description": "Desarrollo soluciones digitales elegantes, escalables y con alto rendimiento usando TypeScript, React, Node.js, Python, C++, Azure y bases de datos SQL. Me apasiona crear experiencias accesibles, responsivas y futuras.",
+    "button": "Ver proyectos"
+  }
+  
+}
