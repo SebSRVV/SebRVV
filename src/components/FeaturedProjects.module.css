@@ -1,0 +1,126 @@
+.section {
+  background-color: #121212;
+  color: white;
+  padding: 100px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.timelineContainer {
+  position: relative;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.timelineSVG {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 200px;
+  height: 100%;
+  transform: translateX(-50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.path {
+  stroke-width: 5;
+  fill: none;
+  stroke-linecap: round;
+}
+
+/* Proyecto general */
+.projectRow {
+  display: flex;
+  justify-content: flex-start;
+  margin: 180px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.left {
+  flex-direction: row;
+}
+
+.right {
+  flex-direction: row-reverse;
+}
+
+.projectContent {
+  width: 100%;
+  max-width: 500px;
+  background-color: #1e1e1e;
+  border-radius: 16px;
+  padding: 28px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+}
+
+.projectContent:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0, 209, 255, 0.25);
+}
+
+/* Separación real desde el centro */
+.left .projectContent {
+  transform: translateX(clamp(-0px, -16vw, -180px));
+}
+
+.right .projectContent {
+  transform: translateX(clamp(0px, 16vw, 0px));
+}
+
+.projectContent img {
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 15px;
+  display: block;
+}
+
+.year {
+  color: #00d1ff;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.description {
+  color: #ccc;
+  font-size: 1rem;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .projectRow {
+    flex-direction: column !important;
+    align-items: center;
+    margin: 100px 0;
+  }
+
+  .projectContent {
+    transform: none !important;
+    max-width: 90%;
+    padding: 24px;
+    margin: 0 auto;
+  }
+
+  .timelineSVG {
+    left: 20px;
+    transform: none;
+  }
+}
