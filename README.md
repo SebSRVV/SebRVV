@@ -6,7 +6,7 @@ Portafolio profesional, creativo y animado desarrollado con **Next.js**, **GSAP*
 
 ## 🌐 Demo
 
-🔗 [www.sebrvv.online](https://sebrrv.online) 
+🔗 [www.sebrvv.online](https://sebrvv.online) 
 
 ---
 
