@@ -21,20 +21,20 @@
   },
   "projects": {
     "test1": {
-      "title": "Test Uno",
-      "description": "Landing con animaciones modernas y optimización para performance."
+      "title": "PropiConnect",
+      "description": "Una plataforma web que conecta propietarios e inquilinos, permitiéndoles publicar, buscar y compartir pagos de propiedades de manera simple y eficiente."
     },
     "test2": {
-      "title": "Test Dos",
-      "description": "Panel admin para plataforma B2B con autenticación y visualizaciones."
+      "title": "SafePass&Docs",
+      "description": "Pagina Web de cifrado y desencriptado de archivos y contraseñas."
     },
     "test3": {
-      "title": "Test Tres",
-      "description": "E-commerce personalizado con pasarela de pagos y panel de control."
+      "title": "BlueFinance",
+      "description": "Proyecto Personal: Plataforma de gestión financiera moderna y segura."
     },
     "test4": {
-      "title": "Test Cuatro",
-      "description": "Otro e-commerce con funcionalidades avanzadas."
+      "title": "SocialMedia E-commerce",
+      "description": "Red social moderna inspirada en el sistema de categorías y votación de Reddit."
     },
     "test5": {
       "title": "Test Cinco",
