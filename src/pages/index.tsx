@@ -1,15 +1,13 @@
 'use client'
 
-
 import { useState } from 'react'
 import { GetStaticPropsContext } from 'next'
-import { useTranslations } from 'next-intl'
 
 import Intro from '@/components/Intro'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import Tooling from '@/components/Tooling'
-import FeaturedProjects from '@/components/FeaturedProject'
+import FeaturedProjects from '@/components/FeaturedProjects'
 import Contact from '@/components/Contact'
 
 export default function Home() {
@@ -30,6 +28,7 @@ export default function Home() {
             <section id="projects">
               <FeaturedProjects />
             </section>
+
             <Contact />
           </main>
         </>
@@ -38,7 +37,6 @@ export default function Home() {
   )
 }
 
-// ✅ Cargar traducciones basadas en el idioma
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
     props: {
