@@ -12,6 +12,33 @@
     "intro": "Soy",
     "description": "Desarrollo soluciones digitales elegantes, escalables y con alto rendimiento usando TypeScript, React, Node.js, Python, C++, Azure y bases de datos SQL. Me apasiona crear experiencias accesibles, responsivas y futuras.",
     "button": "Ver proyectos"
+  },
+    "tooling": {
+    "title": "Herramientas"
+  },
+  "featured": {
+    "title": " Mis Proyectos "
+  },
+  "projects": {
+    "test1": {
+      "title": "Test Uno",
+      "description": "Landing con animaciones modernas y optimización para performance."
+    },
+    "test2": {
+      "title": "Test Dos",
+      "description": "Panel admin para plataforma B2B con autenticación y visualizaciones."
+    },
+    "test3": {
+      "title": "Test Tres",
+      "description": "E-commerce personalizado con pasarela de pagos y panel de control."
+    },
+    "test4": {
+      "title": "Test Cuatro",
+      "description": "Otro e-commerce con funcionalidades avanzadas."
+    },
+    "test5": {
+      "title": "Test Cinco",
+      "description": "Proyecto adicional de comercio electrónico."
+    }
   }
-  
 }

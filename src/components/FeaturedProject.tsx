@@ -2,42 +2,58 @@
 
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { useTranslations } from 'next-intl'
+import { FaStar } from 'react-icons/fa'
+
 import styles from './FeaturedProjects.module.css'
 import { featuredProjects } from '@/lib/projects'
 
 export default function FeaturedProjects() {
-  const pathRef = useRef<SVGPathElement>(null)
-  const { scrollYProgress } = useScroll()
+  const t = useTranslations('featured')
+  const tp = useTranslations('projects')
+  const containerRef = useRef(null)
 
-  // Control de dibujado (retrasado y progresivo)
-  const dashOffset = useTransform(scrollYProgress, [0.2, 0.8], [1, 0])
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start end', 'end start'],
+  })
+
+  const dashOffset = useTransform(scrollYProgress, [0, 1], [1, 0])
 
   return (
     <section className={styles.section} id="featured">
-      <h2 className={styles.heading}>✨ Proyectos Destacados</h2>
+      <h2 className={styles.heading}>
+        <FaStar style={{ marginRight: '0.5rem', color: '#FFD700' }} />
+        {t('title')}
+      </h2>
 
-      <div className={styles.timelineContainer}>
+      <div className={styles.timelineContainer} ref={containerRef}>
         <svg
           className={styles.timelineSVG}
           viewBox="0 0 100 3000"
           preserveAspectRatio="xMidYMin slice"
         >
           <defs>
-            {/* Gradiente de máscara para fade-in y fade-out animado */}
+            {/* Máscara con fade-in y fade-out */}
             <linearGradient id="maskGradient" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="white" stopOpacity="0" />
-              <stop offset="5%" stopColor="white" stopOpacity="1" />
-              <stop offset="95%" stopColor="white" stopOpacity="1" />
+              <stop offset="10%" stopColor="white" stopOpacity="1" />
+              <stop offset="90%" stopColor="white" stopOpacity="1" />
               <stop offset="100%" stopColor="white" stopOpacity="0" />
             </linearGradient>
 
-            <mask id="lineFadeMask">
-              <rect x="0" y="0" width="100%" height="100%" fill="url(#maskGradient)" />
+            <mask id="lineFadeMask" maskUnits="userSpaceOnUse">
+              <rect x="0" y="0" width="200" height="3000" fill="url(#maskGradient)" />
             </mask>
+
+            {/* Degradado desde azul a fondo */}
+            <linearGradient id="gradientStroke" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#00d1ff" />
+              <stop offset="100%" stopColor="#121212" />
+            </linearGradient>
           </defs>
 
           <motion.path
-            ref={pathRef}
             d="
               M50 0 
               C20 200, 80 400, 50 600 
@@ -47,8 +63,9 @@ export default function FeaturedProjects() {
               S80 2000, 50 2200 
               S20 2400, 50 2600 
               S80 2800, 50 3000"
-            stroke="#00d1ff"
-            strokeWidth="3"
+            stroke="url(#gradientStroke)"
+            strokeWidth="8"
+            strokeLinecap="round"
             fill="none"
             mask="url(#lineFadeMask)"
             style={{
@@ -60,6 +77,8 @@ export default function FeaturedProjects() {
 
         {featuredProjects.map((project, index) => {
           const isEven = index % 2 === 0
+          const title = tp(project.titleId.split('.').slice(1).join('.'))
+          const description = tp(project.descriptionId.split('.').slice(1).join('.'))
 
           return (
             <motion.div
@@ -77,9 +96,9 @@ export default function FeaturedProjects() {
                 className={styles.projectContent}
               >
                 <div className={styles.year}>{project.year}</div>
-                <div className={styles.title}>{project.title}</div>
-                <p className={styles.description}>{project.description}</p>
-                <img src={project.image} alt={project.title} />
+                <div className={styles.title}>{title}</div>
+                <p className={styles.description}>{description}</p>
+                <img src={project.image} alt={title} />
               </a>
             </motion.div>
           )

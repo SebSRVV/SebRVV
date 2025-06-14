@@ -1,8 +1,8 @@
 // lib/projects.ts
 
 export interface Project {
-  title: string
-  description: string
+  titleId: string
+  descriptionId: string
   image: string
   year: string
   link: string
@@ -10,36 +10,36 @@ export interface Project {
 
 export const featuredProjects: Project[] = [
   {
-    title: 'Test1',
-    description: 'Landing con animaciones modernas y optimización para performance.',
+    titleId: 'projects.test1.title',
+    descriptionId: 'projects.test1.description',
     image: '/images/proj1.jpg',
     year: '2024',
     link: 'https://startup.example.com',
   },
   {
-    title: 'Test2',
-    description: 'Panel admin para plataforma B2B con autenticación y visualizaciones.',
+    titleId: 'projects.test2.title',
+    descriptionId: 'projects.test2.description',
     image: '/images/proj2.jpg',
     year: '2023',
     link: 'https://dashboard.example.com',
   },
   {
-    title: 'Test3',
-    description: 'E-commerce personalizado con pasarela de pagos y panel de control.',
+    titleId: 'projects.test3.title',
+    descriptionId: 'projects.test3.description',
     image: '/images/proj1.jpg',
     year: '2022',
     link: 'https://ecommerce.example.com',
   },
-    {
-    title: 'Test4',
-    description: 'E-commerce personalizado con pasarela de pagos y panel de control.',
+  {
+    titleId: 'projects.test4.title',
+    descriptionId: 'projects.test4.description',
     image: '/images/proj1.jpg',
     year: '2022',
     link: 'https://ecommerce.example.com',
   },
-    {
-    title: 'Test5',
-    description: 'E-commerce personalizado con pasarela de pagos y panel de control.',
+  {
+    titleId: 'projects.test5.title',
+    descriptionId: 'projects.test5.description',
     image: '/images/proj1.jpg',
     year: '2022',
     link: 'https://ecommerce.example.com',

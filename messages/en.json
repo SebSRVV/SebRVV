@@ -12,5 +12,33 @@
     "intro": "I am",
     "description": "I craft elegant, scalable, and performant digital solutions using TypeScript, React, Node.js, Python, C++, Azure, and SQL-based systems. My passion lies in building accessible, responsive, and future-proof user experiences.",
     "button": "View Projects"
+  },
+  "tooling": {
+    "title": "Tooling"
+  },
+    "featured": {
+    "title": " Featured Projects "
+  },
+  "projects": {
+    "test1": {
+      "title": "Test One",
+      "description": "Landing page with modern animations and performance optimization."
+    },
+    "test2": {
+      "title": "Test Two",
+      "description": "Admin panel for a B2B platform with auth and dashboards."
+    },
+    "test3": {
+      "title": "Test Three",
+      "description": "Custom e-commerce with payment integration and admin panel."
+    },
+    "test4": {
+      "title": "Test Four",
+      "description": "Another e-commerce with advanced features."
+    },
+    "test5": {
+      "title": "Test Five",
+      "description": "Additional e-commerce project."
+    }
   }
 }
