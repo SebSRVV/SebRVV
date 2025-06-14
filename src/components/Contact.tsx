@@ -62,6 +62,7 @@ export default function Contact() {
         >
           <FaHandshake className={styles.icon} />
           {t('title')}
+          
         </motion.h2>
 
         <motion.p
@@ -80,6 +81,7 @@ export default function Contact() {
         >
           <FaEnvelopeOpenText className={styles.iconButton} />
           {t('button')}
+          
         </motion.a>
       </motion.div>
     </section>

@@ -13,25 +13,23 @@ export default function FeaturedProjects() {
   const tp = useTranslations('projects')
   const containerRef = useRef<HTMLDivElement>(null)
 
-  // 1️⃣ scrollYProgress for the whole timeline
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start end', 'end start'],
   })
 
-  // 2️⃣ a springed version for smoother motion
   const smoothProgress = useSpring(scrollYProgress, {
     stiffness: 50,
     damping: 20,
     mass: 0.5,
   })
 
-  // 3️⃣ SVG path draw + fade
+
   const pathLength  = useTransform(smoothProgress, [0, 1], [0, 1])
   const dashOffset  = useTransform(smoothProgress, [0, 1], [1, 0])
   const lineOpacity = useTransform(smoothProgress, [0, 0.05, 0.15], [0, 0.6, 1])
 
-  // total items
+
   const total = featuredProjects.length
 
   return (
@@ -39,6 +37,7 @@ export default function FeaturedProjects() {
       <h2 className={styles.heading}>
         <FaStar style={{ marginRight: '0.5rem', color: '#FFD700' }} />
         {t('title')}
+        <FaStar style={{ marginRight: '0.5rem', color: '#FFD700' }} />
       </h2>
 
       <div className={styles.timelineContainer} ref={containerRef}>
@@ -92,12 +91,11 @@ export default function FeaturedProjects() {
           const title = tp(project.titleId.split('.').slice(1).join('.'))
           const description = tp(project.descriptionId.split('.').slice(1).join('.'))
 
-          // 4️⃣ compute when this item should reveal:
+
           const start      = (index / total) * 0.9
           const end        = ((index + 1) / total) * 0.9
           const revealProg = useTransform(smoothProgress, [start, end], [0, 1])
 
-          // 5️⃣ map to transforms:
           const x        = useTransform(revealProg, [0, 1], [isEven ? -50 : 50, 0])
           const y        = useTransform(revealProg, [0, 1], [100, 0])
           const scale    = useTransform(revealProg, [0, 1], [0.95, 1])

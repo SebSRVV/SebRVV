@@ -83,7 +83,7 @@ export default function Tooling() {
           gap: '0.8rem',
         }}
       >
-        <HiOutlineWrenchScrewdriver size={36} /> {t('title')}
+        <HiOutlineWrenchScrewdriver size={36} /> {t('title')} <HiOutlineWrenchScrewdriver size={36} />
       </motion.h2>
 
       {/* Grid con stagger */}
