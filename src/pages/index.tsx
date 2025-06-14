@@ -7,7 +7,7 @@ import Intro from '@/components/Intro'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import Tooling from '@/components/Tooling'
-import FeaturedProjects from '@/components/FeaturedProjects'
+import FeaturedProjects from '@/components/FeaturedProject'
 import Contact from '@/components/Contact'
 
 export default function Home() {
