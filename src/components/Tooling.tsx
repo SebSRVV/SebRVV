@@ -17,22 +17,39 @@ const tools = [
   { name: 'Azure', icon: '/tooling/azure.svg', color: '#0089D6' },
 ]
 
-const containerVariants: Variants = {
+// Variants para el título
+const titleVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: 'spring', stiffness: 100, damping: 14, duration: 0.6 },
+  },
+}
+
+// Variants para el contenedor de herramientas
+const gridVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.08,
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
     },
   },
 }
 
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 40, scale: 0.95 },
+// Variants para cada tarjeta
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 40, scale: 0.8 },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.5, ease: 'easeOut' },
+    transition: {
+      type: 'spring',
+      stiffness: 120,
+      damping: 16,
+    },
   },
 }
 
@@ -40,20 +57,20 @@ export default function Tooling() {
   const t = useTranslations('tooling')
 
   return (
-    <section
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
       style={{
         background:
           'linear-gradient(to bottom, #101820 0%, #101820 40%, #121212 70%, #121212 100%)',
         padding: '6rem 2rem',
         fontFamily: "'Space Grotesk', sans-serif",
-        //borderTop: '1px solid rgba(255,255,255,0.06)',
       }}
     >
+      {/* Título con spring */}
       <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        viewport={{ once: true }}
+        variants={titleVariants}
         style={{
           fontSize: '2.6rem',
           fontWeight: 700,
@@ -69,11 +86,9 @@ export default function Tooling() {
         <HiOutlineWrenchScrewdriver size={36} /> {t('title')}
       </motion.h2>
 
+      {/* Grid con stagger */}
       <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        variants={gridVariants}
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
@@ -85,21 +100,21 @@ export default function Tooling() {
         {tools.map((tool) => (
           <motion.div
             key={tool.name}
-            variants={itemVariants}
+            variants={cardVariants}
             whileHover={{
-              scale: 1.06,
-              y: -6,
-              boxShadow: `0 10px 25px -4px ${tool.color}44, 0 0 8px ${tool.color}33`,
+              scale: 1.08,
+              y: -8,
+              boxShadow: `0 12px 28px -6px ${tool.color}66, 0 0 10px ${tool.color}44`,
             }}
-            transition={{ type: 'spring', stiffness: 200, damping: 18 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: 'spring', stiffness: 250, damping: 20 }}
             style={{
               background: 'rgba(255,255,255,0.04)',
               padding: '1.5rem 1rem',
               borderRadius: '16px',
               textAlign: 'center',
               border: '1px solid rgba(255,255,255,0.08)',
-              transition: 'all 0.3s ease',
-              cursor: 'default',
+              cursor: 'pointer',
               backdropFilter: 'blur(2px)',
             }}
           >
@@ -110,7 +125,7 @@ export default function Tooling() {
                 height: '48px',
                 marginBottom: '1rem',
                 objectFit: 'contain',
-                filter: 'brightness(0) invert(1)', // fuerza a blanco
+                filter: 'brightness(0) invert(1)',
               }}
             />
             <p
@@ -126,6 +141,6 @@ export default function Tooling() {
           </motion.div>
         ))}
       </motion.div>
-    </section>
+    </motion.section>
   )
 }
