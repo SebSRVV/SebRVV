@@ -6,7 +6,8 @@
   },
   "contact": {
     "title": "Contact",
-    "description": "Have an idea or project? I’m open to collaborating and building creative solutions."
+    "description": "Have an idea or project? I'm open to collaborating and building creative solutions.",
+    "button": "Contact me"
   },
   "hero": {
     "intro": "I am",

@@ -6,7 +6,8 @@
   },
   "contact": {
     "title": "Contacto",
-    "description": "¿Tienes una idea o proyecto? Estoy abierto a colaborar y construir soluciones creativas."
+    "description": "¿Tienes una idea o proyecto? Estoy abierto a colaborar y construir soluciones creativas.",
+    "button": "Contáctame"
   },
   "hero": {
     "intro": "Soy",

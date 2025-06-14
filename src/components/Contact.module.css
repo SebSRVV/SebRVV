@@ -1,0 +1,73 @@
+.contactSection {
+  background: linear-gradient(to bottom, #101820, #0f0f0f);
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contactCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 3rem;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.contactCard:hover {
+  box-shadow: 0 30px 60px rgba(0, 209, 255, 0.12);
+}
+
+.contactTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.contactText {
+  color: #cccccc;
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.contactButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  background-color: #00d1ff;
+  color: #000;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 8px 24px rgba(0, 209, 255, 0.2);
+}
+
+.contactButton:hover {
+  background-color: #00bde5;
+  transform: translateY(-2px);
+}
+
+.icon {
+  font-size: 1.5rem;
+  color: #ffd700;
+}
+
+.iconButton {
+  font-size: 1.2rem;
+}
